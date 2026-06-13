@@ -29,10 +29,14 @@ export function Header({
   };
 
   const Logo = () => (
-    <Link aria-label="Home" className="group flex" href="/">
-      <h2>{'<'}</h2>
-      <h2 className="hidden sm:flex">Victor</h2>
-      <h2>{'/>'}</h2>
+    <Link aria-label="Home" className="flex items-center gap-1" href="/">
+      <span className="text-lg font-semibold sm:text-4xl">{'<'}</span>
+
+      <span className="whitespace-nowrap text-sm font-medium sm:text-3xl">
+        Victor Balogun
+      </span>
+
+      <span className="text-lg font-semibold sm:text-4xl">{'/>'}</span>
     </Link>
   );
 
@@ -41,7 +45,7 @@ export function Header({
       <div className="flex items-center justify-between">
         <Logo />
         <div className="flex items-center gap-x-8">
-          <Link href="/contact">
+          <Link className="hidden md:flex" href="/contact">
             <Button>Contact me</Button>
           </Link>
           <button
