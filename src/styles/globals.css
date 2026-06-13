@@ -57,7 +57,7 @@ body {
     @apply text-3xl sm:text-4xl;
   }
   p {
-    @apply tracking-wider text-[#97979b];
+    @apply tracking-wider text-muted;
   }
 }
 
