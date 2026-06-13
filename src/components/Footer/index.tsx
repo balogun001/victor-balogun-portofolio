@@ -17,12 +17,12 @@ export function Footer() {
   return (
     <footer className="mt-32">
       <Container className="!px-0">
-        <div className="border-t border-[#97979b] pb-16 pt-10 ">
+        <div className="border-t border-muted pb-16 pt-10 ">
           <Container>
             <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
-              <div className="flex flex-wrap justify-center gap-x-6 gap-y-1 text-sm font-medium text-[#97979b]">
+              <div className="flex flex-wrap justify-center gap-x-6 gap-y-1 text-sm font-medium text-muted">
                 <NavLink href="/about">About</NavLink>
-                <NavLink href="/works">Works</NavLink>
+                <NavLink href="/projects">Projects</NavLink>
                 <NavLink href="/contact">Contact</NavLink>
                 <NavLink href="/resume">Resume</NavLink>
               </div>
