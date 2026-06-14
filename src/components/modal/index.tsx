@@ -64,7 +64,7 @@ export const Modal = ({
               leaveTo="opacity-0 scale-95">
               <Dialog.Panel
                 className={classNames(
-                  'relative w-full max-w-md transform space-y-6 overflow-hidden rounded bg-[#CBCBCD] p-8 text-left align-middle  text-black shadow-xl transition-all md:p-10',
+                  'relative w-full max-w-md transform space-y-6 overflow-hidden rounded bg-silver p-8 text-left align-middle  text-black shadow-xl transition-all md:p-10',
                   className
                 )}>
                 <div className="flex items-center justify-between">
