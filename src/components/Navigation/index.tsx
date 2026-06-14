@@ -1,29 +1,38 @@
 import { ReactNode } from 'react';
 import Link, { LinkProps } from 'next/link';
 
-import { Container } from '../Container';
-
-function NavigationRow({ children }: { children: ReactNode }) {
-  return (
-    <div>
-      <Container>
-        <div className="grid grid-cols-1 sm:grid-cols-2">{children}</div>
-      </Container>
-    </div>
-  );
-}
+const NAV_ITEMS = [
+  { href: '/about', index: '01', label: 'About me' },
+  { href: '/resume', index: '02', label: 'Resume' },
+  { href: '/projects', index: '03', label: 'Projects' },
+  { href: '/contact', index: '04', label: 'Hire me' },
+];
 
 type NavigationItemProps = LinkProps & {
   children: ReactNode;
+  index: string;
 };
 
-function NavigationItem({ children, ...rest }: NavigationItemProps) {
+function NavigationItem({ children, index, ...rest }: NavigationItemProps) {
   return (
     <Link
       {...rest}
-      className="hover- group relative isolate -mx-6 px-6 py-10 text-white even:mt-px sm:mx-0 sm:px-0 sm:py-16 sm:odd:pr-16 sm:even:mt-0 sm:even:border-l sm:even:border-white sm:even:pl-16">
-      {children}
-      <span className="absolute inset-y-0 -z-10 w-screen opacity-0 transition hover:bg-gray-600 group-odd:right-0 group-even:left-0 group-hover:opacity-100" />
+      className="group relative flex flex-col justify-end border-b border-white/10 px-8 py-10
+                 transition-colors duration-200
+                 odd:border-r odd:border-white/10 hover:bg-white/5
+                 sm:px-10 sm:py-12">
+      <span className="mb-2 text-xs uppercase tracking-widest text-[#696969]">
+        {index}
+      </span>
+      <span className="text-4xl font-medium tracking-tight text-[#F1F1F1] sm:text-5xl">
+        {children}
+      </span>
+      <span
+        className="absolute bottom-8 right-8 translate-x-[-4px] text-[#696969]
+                       opacity-0 transition-all duration-200
+                       group-hover:translate-x-0 group-hover:opacity-100">
+        →
+      </span>
     </Link>
   );
 }
@@ -34,24 +43,16 @@ type NavigationProps = {
 
 const Navigation = ({ onNavigationItemClick }: NavigationProps) => {
   return (
-    <nav className="font-display mt-px text-5xl font-medium tracking-tight">
-      <NavigationRow>
-        <NavigationItem href="/about" onClick={onNavigationItemClick}>
-          About Me
+    <nav className="grid grid-cols-2">
+      {NAV_ITEMS.map(({ href, label, index }) => (
+        <NavigationItem
+          href={href}
+          index={index}
+          key={href}
+          onClick={onNavigationItemClick}>
+          {label}
         </NavigationItem>
-        <NavigationItem href="/resume" onClick={onNavigationItemClick}>
-          Resume
-        </NavigationItem>
-      </NavigationRow>
-      <hr className="hidden sm:flex sm:h-px sm:bg-white" />
-      <NavigationRow>
-        <NavigationItem href="/projects" onClick={onNavigationItemClick}>
-          Projects
-        </NavigationItem>
-        <NavigationItem href="/contact" onClick={onNavigationItemClick}>
-          Hire me
-        </NavigationItem>
-      </NavigationRow>
+      ))}
     </nav>
   );
 };
