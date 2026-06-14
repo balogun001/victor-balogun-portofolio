@@ -23,7 +23,7 @@ export const PdfPreview = ({ src }: Props) => {
   const [numPages, setNumPages] = useState<number | null>(null);
   const [openShareModal, setOpenShareModal] = useState(false);
   const { width } = useWindowSize();
-  const defaultHeight = 1000;
+  const defaultHeight = 1200;
   function onDocumentLoadSuccess(num: number) {
     setNumPages(num);
   }
@@ -33,7 +33,7 @@ export const PdfPreview = ({ src }: Props) => {
       className={classNames(
         'w-max max-w-full overflow-hidden border border-gray-200',
         {
-          'h-[1000px]': !(width < defaultHeight),
+          'h-[1200px]': !(width < defaultHeight),
           'h-[500px]  sm:h-[800px]': width < defaultHeight,
         }
       )}>
@@ -48,7 +48,7 @@ export const PdfPreview = ({ src }: Props) => {
           <ClipboardCopy text={src} />
         </div>
       </Modal>
-      <div className="flex justify-end gap-2 bg-[#CBCBCD] px-4 py-1">
+      <div className="flex justify-end gap-2 bg-silver px-4 py-1">
         <Tooltip content="Share">
           <IconButton
             className="!border-none"
@@ -87,6 +87,7 @@ export const PdfPreview = ({ src }: Props) => {
                 height={defaultHeight}
                 key={num}
                 pageNumber={num}
+                renderAnnotationLayer={false}
                 renderTextLayer={false}
                 width={width < defaultHeight ? width - 30 : undefined}
               />
