@@ -2,7 +2,6 @@ import { ReactElement } from 'react';
 import Head from 'next/head';
 
 import { Card } from '@/components/BlogCard';
-import { Container } from '@/components/Container';
 import { FadeIn } from '@/components/FadeIn';
 import { PageIntro } from '@/components/PageIntro';
 import { Layout } from '@/layout/Layout';
@@ -44,31 +43,27 @@ const About: NextPageWithLayout = () => {
       <Head>
         <title>Victor Balogun about - Software Developer</title>
       </Head>
-      <Container className="mt-16 max-w-6xl sm:mt-32">
-        <PageIntro eyebrow="About me" title="I'm Balogun Victor">
-          <p>
-            I love using my skill set to simplify work for enterprises.I also
-            like sharing content related to the stuff that I have learned over a
-            long time in software development so it can offer assistance to
-            other individuals in the Dev Community.
-          </p>
-        </PageIntro>
-        <Container>
-          <div className="mt-24 sm:mt-32 lg:mt-40">
-            <div className="space-y-20">
-              {aboutData.map(({ items, title }) => (
-                <ToolsSection key={title} title={title}>
-                  {items.map(({ description, subtitle }) => (
-                    <FadeIn key={subtitle}>
-                      <Tool title={subtitle}>{description}</Tool>
-                    </FadeIn>
-                  ))}
-                </ToolsSection>
+      <PageIntro eyebrow="About me" title="I'm Balogun Victor">
+        <p>
+          I love using my skill set to simplify work for enterprises.I also like
+          sharing content related to the stuff that I have learned over a long
+          time in software development so it can offer assistance to other
+          individuals in the Dev Community.
+        </p>
+      </PageIntro>
+      <div className="mt-24 sm:mt-32 lg:mt-40">
+        <div className="space-y-20">
+          {aboutData.map(({ items, title }) => (
+            <ToolsSection key={title} title={title}>
+              {items.map(({ description, subtitle }) => (
+                <FadeIn key={subtitle}>
+                  <Tool title={subtitle}>{description}</Tool>
+                </FadeIn>
               ))}
-            </div>
-          </div>
-        </Container>
-      </Container>
+            </ToolsSection>
+          ))}
+        </div>
+      </div>
     </>
   );
 };
