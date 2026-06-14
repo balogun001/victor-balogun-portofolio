@@ -4,7 +4,7 @@ import { BsLinkedin } from 'react-icons/bs';
 export const socialProfile = [
   {
     icon: AiOutlineGithub,
-    link: 'https://github.com/BalogunVictor',
+    link: 'https://github.com/balogun001',
   },
   {
     icon: AiOutlineTwitter,
@@ -12,6 +12,6 @@ export const socialProfile = [
   },
   {
     icon: BsLinkedin,
-    link: 'https://www.linkedin.com/in/balogun(moyinoluwa)victor',
+    link: 'https://www.linkedin.com/in/victor-m-balogun',
   },
 ];
