@@ -3,8 +3,6 @@ import classNames from 'classnames';
 import Head from 'next/head';
 import Link from 'next/link';
 
-import { ContactForm } from '@/components/ContactForm';
-import { Container } from '@/components/Container';
 import { FadeIn } from '@/components/FadeIn';
 import { PageIntro } from '@/components/PageIntro';
 import { Layout } from '@/layout/Layout';
@@ -26,7 +24,7 @@ export function Border({
         'relative before:absolute after:absolute',
         invert
           ? 'before:bg-white after:bg-white/10'
-          : 'before:bg-gray-500 after:bg-[#97979b]',
+          : 'before:bg-gray-500 after:bg-muted',
         position === 'top' &&
           'before:left-0 before:top-0 before:h-px before:w-6 after:left-8 after:right-0 after:top-0 after:h-px',
         position === 'left' &&
@@ -44,16 +42,16 @@ function ContactDetails() {
         <h2 className="font-display text-base font-semibold">Personal Info</h2>
         <dl className="mt-6 grid grid-cols-1 gap-8 text-sm sm:grid-cols-2">
           {[
-            ['Email', 'balogunmoyinoluwa@gmail.com'],
-            ['Telephone', '+2348088988560'],
-          ].map(([label, email]) => (
-            <div key={email}>
+            ['Email', 'balogunmoyinoluwa@gmail.com', 'mailto'],
+            ['Telephone', '+2348088988560', 'tel'],
+          ].map(([label, value, type]) => (
+            <div key={value}>
               <dt className="font-semibold">{label}</dt>
               <dd>
                 <Link
-                  className="text-[#97979b] hover:text-white"
-                  href={`mailto:${email}`}>
-                  {email}
+                  className="text-muted hover:text-white"
+                  href={`${type}:${value}`}>
+                  {value}
                 </Link>
               </dd>
             </div>
@@ -88,21 +86,17 @@ const Home: NextPageWithLayout = () => {
       <Head>
         <title>Contact Balogun Victor - Software Developer</title>
       </Head>
-      <Container className="mt-16 sm:mt-32">
+      <div className="mt-16 sm:mt-32">
         <PageIntro eyebrow="Contact me" title="Let’s work together">
           <p>I can’t wait to hear from you.</p>
         </PageIntro>
 
         <div className="mt-24 sm:mt-32 lg:mt-40">
-          <div className="grid grid-cols-1 gap-x-8 gap-y-24 lg:grid-cols-2">
-            <FadeIn>
-              <ContactForm />
-            </FadeIn>
-
+          <div className="max-w-[540px]">
             <ContactDetails />
           </div>
         </div>
-      </Container>
+      </div>
     </>
   );
 };
