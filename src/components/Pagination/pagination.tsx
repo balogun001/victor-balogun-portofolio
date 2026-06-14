@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import ResponsivePagination from 'react-responsive-pagination';
 import axios from 'axios';
 
-import { Button } from '../Button/Button';
-
 const Pagination = () => {
   const linkClassName =
     'hover:bg-brand-compliment hover:text-brand-dominant50 cursor-pointer w-8 h-8 border rounded mt-2 flex items-center justify-center hover:opacity-80 border-brand-compliment mx-2';
