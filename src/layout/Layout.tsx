@@ -44,7 +44,7 @@ export const Layout = ({ children }: LayoutProps) => {
 
   return (
     <MotionConfig transition={shouldReduceMotion ? { duration: 0 } : undefined}>
-      <div className="max-w-[2000px] bg-gray-900">
+      <div className="max-w-[2000px] bg-gray-500">
         <header>
           <div
             aria-hidden={expanded ? 'true' : undefined}
@@ -60,7 +60,7 @@ export const Layout = ({ children }: LayoutProps) => {
           <motion.div
             aria-hidden={expanded ? undefined : 'true'}
             className={classNames(
-              'relative z-50 !overflow-hidden bg-gray-900 pt-2 md:pt-0',
+              'relative z-50 !overflow-hidden bg-gray-500 pt-2 md:pt-0',
               {
                 'h-0': !expanded,
                 'h-auto': expanded,
@@ -68,8 +68,8 @@ export const Layout = ({ children }: LayoutProps) => {
             )}
             id={panelId}
             layout>
-            <motion.div className="bg-gray-800" layout>
-              <div className="bg-gray-900 pb-16 pt-14">
+            <motion.div className="bg-gray-400" layout>
+              <div className="bg-gray-400 pb-16 pt-14">
                 <Header
                   expanded={expanded}
                   icon={HiXMark}
@@ -79,7 +79,7 @@ export const Layout = ({ children }: LayoutProps) => {
                 />
               </div>
               <Navigation onNavigationItemClick={handleExpanded} />
-              <div className="relative bg-gray-900 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gray-800">
+              <div className="relative bg-gray-400 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gray-500">
                 <Container>
                   <div className="grid grid-cols-1 gap-y-10 pb-16 pt-10 sm:grid-cols-2 sm:pt-16">
                     <div className="sm:border-l sm:border-transparent">
@@ -114,7 +114,9 @@ export const Layout = ({ children }: LayoutProps) => {
           layout="position">
           <div className="mx-auto min-h-screen max-w-[2000px] border-l border-r bg-black px-0 pt-14">
             <div className="pt-9">
-              <main>{children}</main>
+              <main>
+                <Container>{children}</Container>
+              </main>
               <Footer />
             </div>
           </div>
