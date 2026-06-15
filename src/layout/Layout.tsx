@@ -44,7 +44,7 @@ export const Layout = ({ children }: LayoutProps) => {
 
   return (
     <MotionConfig transition={shouldReduceMotion ? { duration: 0 } : undefined}>
-      <div className="max-w-[2000px] bg-gray-500">
+      <div className="max-w-[2000px] bg-gray-400">
         <header>
           <div
             aria-hidden={expanded ? 'true' : undefined}
@@ -60,7 +60,7 @@ export const Layout = ({ children }: LayoutProps) => {
           <motion.div
             aria-hidden={expanded ? undefined : 'true'}
             className={classNames(
-              'relative z-50 !overflow-hidden bg-gray-500 pt-2 md:pt-0',
+              'relative z-50 !overflow-hidden bg-gray-400 pt-2 md:pt-0',
               {
                 'h-0': !expanded,
                 'h-auto': expanded,
@@ -79,7 +79,7 @@ export const Layout = ({ children }: LayoutProps) => {
                 />
               </div>
               <Navigation onNavigationItemClick={handleExpanded} />
-              <div className="relative bg-gray-400 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gray-500">
+              <div className="relative bg-gray-400 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gray-400">
                 <Container>
                   <div className="grid grid-cols-1 gap-y-10 pb-16 pt-10 sm:grid-cols-2 sm:pt-16">
                     <div className="sm:border-l sm:border-transparent">

@@ -20,7 +20,7 @@ const STACK = [
 
 const STATS = [
   { label: 'Years experience', num: '5+' },
-  { label: 'UI components shippe', num: '40+' },
+  { label: 'UI components shipped', num: '80+' },
   { label: 'Companies', num: '4' },
 ];
 
